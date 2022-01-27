@@ -5,7 +5,7 @@ const auth = require('../../middleware/auth');
 const Post = require('../../models/Post');
 const User = require('../../models/User');
 const Profile = require('../../models/Profile')
-
+const checkObjectId = require('../../middleware/checkObjectId');
 // @route    POST api/posts
 // @desc     Create a post
 // @access   Private
@@ -38,7 +38,7 @@ router.post(
     }
   }
 );
-/ @route    GET api/posts
+// @route    GET api/posts
 // @desc     Get all posts
 // @access   Private
 router.get('/', auth, async (req, res) => {
