@@ -9,7 +9,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case SET_ALERT: //we dispatch this type (set_alert)
-      return [...state, payload]; //we return the array with the payload(new alert). adds a new alert to the array
+      return [...state, payload]; //we return the array with the payload(new alert). adds a new alert to the array/state
     case REMOVE_ALERT:
       return state.filter((alert) => alert.id !== payload); //returns all alerts execpt for the one that matches the payload
     default:
