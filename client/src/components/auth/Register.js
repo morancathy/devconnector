@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { connect } from "react-redux"; //allows us to connect this component to redux
 import { Link } from "react-router-dom";
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   //destructer. same as props.setAlert
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +25,7 @@ const Register = ({ setAlert }) => {
       setAlert("Passwords do not match", "danger"); //danger is the alert type, for our css.
       // props.setAlert pass this in as a msg to our actions, will generate an ID, and dispatch said alert with that alert type and id.
     } else {
-      console.log("success");
+      register({ name, email, password });
     }
   };
 
@@ -90,9 +91,10 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
 //if use connect, have to export connect() then name of component goes after it in parentheses
 // if want to bring in an action have to pass into connect.
 //connect() takes in 2 params. 1) any state you want to map and 2) object with any actions. We can now access props.setAlert. Make sure bring in props at the top.
