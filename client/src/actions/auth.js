@@ -13,7 +13,7 @@ export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
     //sets the token to the header if there is one
     setAuthToken(localStorage.token);
-  }
+  } //this pnly checks the first time the user loads
 
   try {
     const res = await axios.get("/api/auth");
