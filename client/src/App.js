@@ -10,6 +10,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Alert from "./components/layout/Alert";
+import Dashboard from "./components/dashboard/Dashboard";
 //Redux
 import { Provider } from "react-redux"; //surround app with Provider
 import store from "./store";
@@ -35,13 +36,18 @@ const App = () => {
         <Navbar />
         <Alert />
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" className="container" element={<Landing />} />
           <Route
             path="/register"
             className="container"
             element={<Register />}
           />
           <Route path="/login" className="container" element={<Login />} />
+          <Route
+            path="/dashboard"
+            className="container"
+            element={<Dashboard />}
+          />
         </Routes>
       </Router>
     </Provider>
